@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="mb-4">Orders</h3>
+
+<div class="card p-3">
+
+<table class="table table-hover">
+<thead>
+<tr>
+<th>ID</th>
+<th>Product</th>
+<th>Qty</th>
+<th>Address</th>
+</tr>
+</thead>
+
+<tbody>
+{% for o in orders %}
+<tr>
+<td>{{ o.id }}</td>
+<td>{{ product_map[o.product_id] }}</td>
+<td>{{ o.quantity }}</td>
+<td>{{ o.address }}</td>
+</tr>
+{% endfor %}
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>Supplier Management</h3>
+
+<div class="card p-3 mb-4 shadow">
+    <form method="POST" action="/add_supplier">
+        <div class="row">
+            <div class="col"><input name="name" class="form-control" placeholder="Supplier Name" required></div>
+            <div class="col"><input name="contact" class="form-control" placeholder="Contact"></div>
+            <div class="col">
+                <button class="btn btn-primary w-100">Add</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="card p-3 shadow">
+<table class="table">
+<tr><th>Name</th><th>Contact</th><th>Action</th></tr>
+
+{% for s in suppliers %}
+<tr>
+<td>{{ s.name }}</td>
+<td>{{ s.contact }}</td>
+<td><a href="/delete_supplier/{{s.id}}" class="btn btn-danger btn-sm">Delete</a></td>
+</tr>
+{% endfor %}
+
+</table>
+</div>
+
+{% endblock %}
